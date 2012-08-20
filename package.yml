@@ -1,0 +1,19 @@
+name: "Flexo"
+exports: "mootools-flexo.js"
+web: "[mooforum.net](http://mooforum.net)"
+description: "MooTools Flexo Behavior"
+license: "[MIT License](http://mootools.net/license.txt)"
+copyright: "&copy; [mooforum](http://mooforum.net)"
+authors: "[Thomas Allmer](http://mooforum.net)"
+
+author: daKmoR
+category: Interface
+tags: [editor, inline, flexo]
+#docs: http://url.to.docs
+#demo: http://url.to.demo
+#current: 0.5
+
+sources:
+  - Source/Flexo.js
+  - Source/Flexo.Bold.js
+  - Source/Behaviors/Behavior.Flexo.js
