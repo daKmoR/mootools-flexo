@@ -33,7 +33,7 @@ var Flexo = new Class({
 	options: {
 		submitOnEnterElements: ['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'],
 		submitOnEnter: false,
-		allowActivation: false
+		allowClickActivation: false
 	},
 
 	submitOnEnter: false,
@@ -51,8 +51,19 @@ var Flexo = new Class({
 			// this.checkCarrotPosition();
 		// }.bind(this) );
 
+
+		this.element.addEvent('mousedown', function(event) {
+			this.activateTimer = this.activate.delay(800, this);
+		}.bind(this));
+
+		this.element.addEvent('mouseleave', function(event) {
+			clearTimeout(this.activateTimer);
+		}.bind(this));
+
 		this.element.addEvent('click', function() {
-			this.activate();
+			if (this.options.allowClickActivation === true) {
+				this.activate();
+			}
 		}.bind(this));
 
 		this.element.addEvent('blur', function() {
@@ -70,11 +81,9 @@ var Flexo = new Class({
 	},
 
 	activate: function() {
-		if (this.options.allowActivation === true) {
-			this.element.set('contentEditable', true);
-			this.originalContent = this.element.get('html');
-			this.element.focus();
-		}
+		this.element.set('contentEditable', true);
+		this.originalContent = this.element.get('html');
+		this.element.focus();
 	},
 
 	deactivate: function() {

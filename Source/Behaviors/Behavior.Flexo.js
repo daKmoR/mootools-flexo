@@ -13,8 +13,8 @@ Behavior.addGlobalFilter('Flexo', {
 
 	setup: function(element, api) {
 		var options = {};
-		if (api.getAs(Boolean, 'allow-activation') === true) {
-			options.allowActivation = true;
+		if (api.getAs(Boolean, 'allow-click-activation') === true) {
+			options.allowClickActivation = true;
 		}
 		var myFlexo = new Flexo(element, options);
 		return myFlexo;
